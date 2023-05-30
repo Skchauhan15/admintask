@@ -1,0 +1,60 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "admin task Documentation",
+        "description": "admin task Documentation",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3001/",
+            "description": "local server"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Upload",
+            "description": "Upload api"
+        }
+    ],
+     "paths": {
+         "/upload/upload_file": {
+            "post": {
+                "tags": [
+                    "Upload"
+                ],
+                "summary": "Upload file Api",
+                "requestBody": {
+                    "content": {
+                         "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "required": [
+                                    "file"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                 "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        }
+     }
+}

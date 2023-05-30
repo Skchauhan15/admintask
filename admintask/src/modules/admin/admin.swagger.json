@@ -1,0 +1,1645 @@
+{
+     "openapi": "3.0.3",
+    "info": {
+        "title": "Admin Task Api Documentation",
+        "description": "Admin Task Api Documentation",
+        "version": "1.0.0"
+    },
+    "servers": [
+    
+        {
+            "url": "http://localhost:3001/",
+            "description": "local server"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Admin",
+            "description": "Admin related apis"
+        }
+    ],
+    "paths": {
+        "/admin/signup": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin Signup Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_signup"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_signup"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/admin/email-verify": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin email verify Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_verify_email"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_verify_email"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/admin/resend-otp-email": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin resend otp email",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_resend_otp_email"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_resend_otp_email"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/admin/forgot-password": {
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin forgot password",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_forgot_password"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_forgot_password"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+         "/admin/reset-password": {
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin reset_password Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_reset_password"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_reset_password"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+         "/admin/change-password": {
+            "put": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin change password Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_change_password"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_change_password"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+         "/admin/login": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin login Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_login"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_login"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+               
+            }
+        },
+         "/admin/profile": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin viewProfile Api",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            },
+            "patch": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Admin edit profile ",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "file":{
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "name": {
+                                        "description": "Enter your name",
+                                        "type": "string",
+                                        "format": "string"
+                                    },
+                                    "email": {
+                                        "description": "Enter your email",
+                                        "type": "string",
+                                        "format": "email"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security":[
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+         "/admin/user": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Admin add user Api",
+                "requestBody": {
+                    "content": {
+                         "multipart/form-data": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "file":{
+                                        "type": "string",
+                                        "format": "binary"
+                                       },
+                                           "name": {
+                                           "description": "Enter user name",
+                                           "type": "string",
+                                           "format": "string",
+                                           "default": "John Doe"
+                                       },
+                                       "email": {
+                                           "description": "Enter your email",
+                                           "type": "string",
+                                           "format": "email"
+                                       },
+                                       "password": {
+                                           "description": "Enter user passowrd",
+                                           "type": "string",
+                                           "format": "password",
+                                            "default": "1234"
+                                       },
+                                        "phone_number": {
+                                           "description": "Enter user phone number",
+                                           "type": "number",
+                                           "format": "number",
+                                            "default": "8534851745"
+                                       }
+                                },
+                "required": [
+                    "name",
+                    "email",
+                    "password"
+                ]
+                            }
+                        } 
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security":[
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "User list Api",
+                 "parameters": [
+                      {
+                        "$ref": "#/components/parameters/user_status"
+                    },{
+                        "$ref": "#/components/parameters/user_name"
+                    }
+                 ]
+                 
+                ,
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            }
+    
+        },
+         "/admin/user/{_id}": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "User detail Api",
+                 "parameters": [
+                    {
+                      "$ref": "#/components/parameters/user_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            },
+             "patch": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "User edit status Api",
+                 "parameters": [
+                      {
+                        "$ref": "#/components/parameters/set_user_status"
+                    },
+                    {
+                        "$ref": "#/components/parameters/user_id"
+                    }
+                 ]
+                ,
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            },
+            
+            "delete": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "User delete Api",
+                 "parameters": [
+                      {
+                        "$ref": "#/components/parameters/user_id"
+                    }
+                 ]
+                ,
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            }
+        },
+          "/admin/product": {
+            "post": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Admin add Product Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_add_product"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_add_product"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security":[
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "product list Api",
+                   "parameters": [
+                    {
+                      "$ref": "#/components/parameters/product_category"
+                    },
+                    {
+                        "$ref": "#/components/parameters/product_price"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            }
+    
+        },
+        "/admin/product/{_id}": {
+            "get": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "product detail Api",
+                 "parameters": [
+                    {
+                      "$ref": "#/components/parameters/user_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            },
+             "patch": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "product edit Api",
+                  "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_add_product"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_add_product"
+                            }
+                        }
+                    }
+                },
+                 "parameters": [
+                    {
+                        "$ref": "#/components/parameters/user_id"
+                    }
+                 ]
+                ,
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            },
+            
+            "delete": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "product hidden Api",
+                 "parameters": [
+                      {
+                        "$ref": "#/components/parameters/user_id"
+                    }
+                 ]
+                ,
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            }
+        },
+        "/admin/page": {
+            "post": {
+                "tags": [
+                    "page"
+                ],
+                "summary": "Admin add - page Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_add_page"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_add_page"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security":[
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "page"
+                ],
+                "summary": "page list Api",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            }
+    
+        },
+        "/admin/page/{_id}": {
+            "get": {
+                "tags": [
+                    "page"
+                ],
+                "summary": "page detail Api",
+                 "parameters": [
+                    {
+                      "$ref": "#/components/parameters/user_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            },
+             "patch": {
+                "tags": [
+                    "page"
+                ],
+                "summary": "page edit Api",
+                  "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_add_page"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_add_page"
+                            }
+                        }
+                    }
+                },
+                 "parameters": [
+                    {
+                        "$ref": "#/components/parameters/user_id"
+                    }
+                 ]
+                ,
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            }
+            
+    
+        },
+         "/admin/faq": {
+            "post": {
+                "tags": [
+                    "faq"
+                ],
+                "summary": "Admin add - faq Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_add_faq"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_add_faq"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security":[
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "faq"
+                ],
+                "summary": "faq list Api",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            }
+    
+        },
+        "/admin/faq/{_id}": {
+            "get": {
+                "tags": [
+                    "faq"
+                ],
+                "summary": "faq detail Api",
+                 "parameters": [
+                    {
+                      "$ref": "#/components/parameters/user_id"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            },
+             "patch": {
+                "tags": [
+                    "faq"
+                ],
+                "summary": "faq edit Api",
+                  "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_add_faq"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_add_faq"
+                            }
+                        }
+                    }
+                },
+                 "parameters": [
+                    {
+                        "$ref": "#/components/parameters/user_id"
+                    }
+                 ]
+                ,
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            }
+        },
+           "/admin/contact": {
+            "post": {
+                "tags": [
+                    "contact"
+                ],
+                "summary": "for add contact Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_add_contact"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_add_contact"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security":[
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "contact"
+                ],
+                "summary": "contact list Api",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            }
+    
+        },
+         "/admin/contact/{_id}": {
+             "patch": {
+                "tags": [
+                    "contact"
+                ],
+                "summary": "contact edit status Api",
+                 "parameters": [
+                      {
+                        "$ref": "#/components/parameters/set_contact_status"
+                    },
+                    {
+                        "$ref": "#/components/parameters/user_id"
+                    }
+                 ]
+                ,
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            },
+            "delete": {
+                "tags": [
+                    "contact"
+                ],
+                "summary": "contact delete Api",
+                 "parameters": [
+                      {
+                        "$ref": "#/components/parameters/user_id"
+                    }
+                 ]
+                ,
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            }
+        },
+              "/admin/notification": {
+            "post": {
+                "tags": [
+                    "Notification"
+                ],
+                "summary": "for add contact Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_add_notification"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_add_notification"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security":[
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            }
+        },
+
+        
+           "/admin/staff": {
+            "post": {
+                "tags": [
+                    "staff"
+                ],
+                "summary": "for add staff Api",
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_add_staff"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_add_staff"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                "security":[
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "staff"
+                ],
+                "summary": "staff list Api",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            }
+    
+        },
+         "/admin/staff/{_id}": {
+               "get": {
+                "tags": [
+                    "staff"
+                ],
+                "summary": "contact delete Api",
+                 "parameters": [
+                      {
+                        "$ref": "#/components/parameters/user_id"
+                    }
+                 ]
+                ,
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            },
+             "patch": {
+                "tags": [
+                    "staff"
+                ],
+                "summary": "staff edit Api",
+             "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_add_staff"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/admin_add_staff"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            },
+            "delete": {
+                "tags": [
+                    "staff"
+                ],
+                "summary": "contact delete Api",
+                 "parameters": [
+                      {
+                        "$ref": "#/components/parameters/user_id"
+                    }
+                 ]
+                ,
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            }
+        },
+           "/admin/dashboard": {
+               "get": {
+                "tags": [
+                    "dashboard"
+                ],
+                "summary": "Dashboard Api",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                },
+                   "security": [
+                    {
+                        "access_token": [
+                            "access_token"
+                        ]
+                    }
+                ]
+               
+            }
+        }  
+    },
+     "components": {
+        "schemas": {
+            "admin_signup": {
+                 "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "Enter your name",
+                        "type": "string",
+                        "format": "string",
+                        "default": "John Doe"
+                    },
+                    "email": {
+                        "description": "Enter your email",
+                        "type": "string",
+                        "format": "email"
+                    },
+                    "password": {
+                        "description": "Enter your passowrd",
+                        "type": "string",
+                        "format": "password",
+                         "default": "1234"
+                    },
+                     "confirm_password": {
+                        "description": "Enter your passowrd",
+                        "type": "string",
+                        "format": "password",
+                         "default": "1234"
+                    },
+                     "fcm_token": {
+                        "description": "Enter your fcm access_token here",
+                        "type": "string",
+                        "format": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "email",
+                    "password"
+                ]
+            },
+            "admin_verify_email": {
+                 "type": "object",
+                "properties": {
+                    "otp": {
+                       "description": "OTP comes here",
+                        "type": "number",
+                        "format": "number"
+                      
+                    }
+                },
+                "required": [
+                    "otp"
+                ]
+            },
+            "admin_resend_otp_email": {
+                 "type": "object",
+                "properties": {
+                 "email": {
+                        "description": "type email here",
+                        "type": "string",
+                        "format": "email",
+                        "default": "john_doe@gmail.com"
+                    }
+                },
+                "required": [
+                    "email"
+                ]
+            },
+            "admin_forgot_password": {
+                 "type": "object",
+                "properties": {
+                 "email": {
+                        "description": "type email here",
+                        "type": "string",
+                        "format": "email",
+                        "default": "john_doe@gmail.com"
+                    }
+                },
+                "required": [
+                    "email"
+                ]
+            },
+              "admin_reset_password": {
+                 "type": "object",
+                "properties": {
+                 "otp": {
+                        "description": "type otp here",
+                        "type": "number",
+                        "format": "number"
+                    },
+                    "new_password": {
+                        "description": "type password here",
+                        "type": "string",
+                        "format": "string",
+                        "default":"12345"
+                    }
+
+                },
+                "required": [
+                    "otp",
+                    "new_password"
+                ]
+            },
+              "admin_change_password": {
+                 "type": "object",
+                "properties": {
+                 "old_password": {
+                        "description": "type password here",
+                        "type": "string",
+                        "format": "string",
+                        "default":"1234"
+                    },
+                 "new_password": {
+                        "description": "type password here",
+                        "type": "string",
+                        "format": "string",
+                        "default":"12345"
+                    }
+                },
+                "required": [
+                 "old_password",
+                 "new_password"
+                ]
+            },
+             "admin_login": {
+                 "type": "object",
+                "properties": {
+                    "email": {
+                        "description": "Enter your email",
+                        "type": "string",
+                        "format": "email"
+                    },
+                    "password": {
+                        "description": "Enter your passowrd",
+                        "type": "string",
+                        "format": "password",
+                         "default": "1234"
+                    },
+                     "fcm_token": {
+                        "description": "Enter your fcm access_token here",
+                        "type": "string",
+                        "format": "string"
+                    }
+                },
+                "required": [
+                    "email",
+                    "password"
+                ]
+            },
+             "admin_add_product": {
+                 "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "Enter Product Name",
+                        "type": "string",
+                        "format": "string",
+                        "default": "Product 1"
+                    },
+                    "category": {
+                        "description": "Enter category",
+                        "type": "string",
+                            "enum": [
+                   "category1",
+                   "category2",
+                   "category3",
+                   "category4"
+                    ]
+                    },
+                    "description": {
+                        "description": "Enter description ",
+                        "type": "string",
+                        "format": "string",
+                         "default": "this is the description"
+                    },
+                     "images": {
+                        "description": "array of images",
+                        "type":"array",
+                        "items":{
+                            "type":"string"
+                        }
+                    },
+                    "regular_price" : {
+                        "description": "Enter regular price ",
+                        "type": "number",
+                        "format": "number",
+                         "default": 500
+                    },
+                    "sales_price" : {
+                        "description": "Enter sales price ",
+                        "type": "number",
+                        "format": "number",
+                         "default": 100
+                    },
+                    "cover_image": {
+                        "description": "string",
+                        "type": "string",
+                        "format": "string"
+                    }
+                },
+                "required": [
+                   
+                ]
+            },
+            "admin_add_page": {
+                 "type": "object",
+                "properties": {
+                    "title": {
+                        "description": "Enter Page title",
+                        "type": "string",
+                        "format": "string",
+                        "default": "Term and Condition"
+                    },
+                    "description": {
+                        "description": "Enter description ",
+                        "type": "string",
+                        "format": "string",
+                         "default": "this is the description"
+                    },
+                    "image": {
+                        "description": "string",
+                        "type": "string",
+                        "format": "string"
+                    }
+                },
+                "required": [
+                   
+                ]
+            },
+              "admin_add_faq": {
+                 "type": "object",
+                "properties": {
+                    "question": {
+                        "description": "Enter faq question",
+                        "type": "string",
+                        "format": "string",
+                        "default": "do you have any question"
+                    },
+                    "answer": {
+                        "description": "Enter the answer",
+                        "type": "string",
+                        "format": "string",
+                         "default": "this is the answer"
+                    }
+                },
+                "required": [
+                   
+                ]
+            }
+            ,
+             "admin_add_contact": {
+                 "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "Enter user name",
+                        "type": "string",
+                        "format": "string",
+                        "default": "John Doe"
+                    },
+                    "profile_pic": {
+                         "description": "profile pic name after upload",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "email": {
+                        "description": "Enter your email",
+                        "type": "string",
+                        "format": "email"
+                    },
+                     "phone_number": {
+                        "description": "Enter user phone number",
+                        "type": "number",
+                        "format": "number",
+                         "default": "8534851745"
+                    },
+                    "message": {
+                        "description": "Enter your message",
+                        "type": "string",
+                        "format": "string",
+                        "default": "this is the message"
+                    }
+                },
+                "required": [
+                    "name",
+                    "email"
+                ]
+            },
+             "admin_add_notification": {
+                 "type": "object",
+                "properties": {
+                    "selects": {
+                        "description": "selects",
+                        "default":"All",
+                        "type": "string",
+                     "enum": [
+                   "All",
+                   "Selected"
+                    ]
+                    },
+                     "send_to": {
+                          "description": "array of emials",
+                        "type":"array",
+                        "items":{
+                            "type":"string",
+                            "format":"email"
+                        }
+                    },
+                     "notificationType": {
+                        "description": "Enter notification Type",
+                        "type": "string",
+                        "default":"Email",
+                     "enum": [
+                   "Push",
+                   "Email"
+                    ]
+                    },
+                      "subject": {
+                        "description": "Enter Subject",
+                        "type": "string",
+                        "format": "string",
+                        "default": "this is the subject"
+                    },
+                     "description": {
+                        "description": "Enter Product Name",
+                        "type": "string",
+                        "format": "string",
+                        "default": "this is the description"
+                    }
+                
+                },
+                "required": [
+                   "selects", "notificationType"
+                ]
+            },
+            
+              "admin_add_staff": {
+                 "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "Enter  Name",
+                        "type": "string",
+                        "format": "string",
+                        "default": "JOnny "
+                    },
+                     "profile_pic": {
+                         "description": "profile pic name after upload",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "email": {
+                        "description": "Enter your email",
+                        "type": "string",
+                        "format": "email",
+                        "default": "john_doe@gmail.com"
+                    },
+                     "phone_number": {
+                        "description": "Enter user phone number",
+                        "type": "number",
+                        "format": "number",
+                         "default": "8534851565"
+                    },
+                     "role":  {
+                        "description": "array of roles",
+                        "type":"array",
+                        "items": {
+                            "type": "string"
+                    }
+                    
+                    },
+                   "required": [
+                   
+                     ]
+                }
+            
+            }
+        },
+         "parameters": {
+               "user_status": {
+                   "name": "status",
+                   "in": "query",
+                   "description": "select the status ",
+                   "required":false,
+                   "schema": {
+                     "type": "string",
+                     "format":"string",
+                     "enum": [
+                   "Active",
+                   "Deactive",
+                   "Block",
+                   "Unblock"
+                    ]
+                   }
+                },
+                "user_name": {
+                   "name": "name",
+                   "in": "query",
+                   "description": "search",
+                   "required":false,
+                   "schema": {
+                     "type": "string",
+                     "format":"string"
+                   }
+                },
+                "product_category": {
+                   "name": "category",
+                   "in": "query",
+                   "description": "select the product category ",
+                   "required":false,
+                   "schema": {
+                     "type": "string",
+                     "format":"string",
+                     "enum": [
+                   "category1",
+                   "category2",
+                   "category3",
+                   "category4"
+                    ]
+                   }
+                },
+                 "product_price": {
+                   "name": "price",
+                   "in": "query",
+                   "description": "select the product price  ",
+                   "required":false,
+                   "schema": {
+                     "type": "number",
+                     "format":"number"
+                   }
+                },
+
+                 "set_user_status": {
+                   "name": "status",
+                   "in": "query",
+                   "description": "select the status ",
+                   "required": true,
+                   "schema": {
+                     "type": "string",
+                     "format":"string",
+                     "enum": [
+                   "Active",
+                   "Deactive",
+                   "Block",
+                   "Unblock"
+                    ]
+                   }
+                },
+                 "user_id": {
+                    "name": "_id",
+                    "in": "path",
+                    "description": "Pass here  _id",
+                    "required": true,
+                    "schema": {
+                      "type": "string"
+                    }
+                },
+                "set_contact_status": {
+                   "name": "status",
+                   "in": "query",
+                   "description": "select the status ",
+                   "required": true,
+                   "schema": {
+                     "type": "string",
+                     "format":"string",
+                     "enum": ["Open", "Resolved"]
+                   }
+                }            
+            },
+         "securitySchemes": {
+                 "access_token": {
+                "type": "apiKey",
+                "name": "token",
+                "in": "header"
+                }
+        }
+        
+    }
+
+    
+}

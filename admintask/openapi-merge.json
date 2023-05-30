@@ -1,0 +1,11 @@
+{
+    "inputs":[
+        {
+            "inputFile": "./src/modules/admin/admin.swagger.json"
+        },
+        {
+            "inputFile": "./src/modules/uploads/uploads.swagger.json"
+        }
+    ],
+    "output":  "./output.swagger.json"
+}
